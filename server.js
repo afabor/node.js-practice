@@ -33,3 +33,15 @@ app.put("/items/:id", (req, res) => {
     res.send(item);
   }
 });
+
+app.delete("items/:id", (req, res) => {
+  const item = data.find((i) => i.id === parseInt(req.params.id));
+
+  if (!item) {
+    res.status(404).send("Item not found");
+  } else {
+    const index = data.indexOf(item);
+    data.splice(index, 1);
+    res.send(item);
+  }
+});
