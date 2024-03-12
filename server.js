@@ -34,7 +34,7 @@ app.put("/items/:id", (req, res) => {
   }
 });
 
-app.delete("items/:id", (req, res) => {
+app.delete("/items/:id", (req, res) => {
   const item = data.find((i) => i.id === parseInt(req.params.id));
 
   if (!item) {
